@@ -1,0 +1,3 @@
+/home/aliasgar/masters/ACA/Lab_4/build/CMakeFiles/lab4_aca.dir
+/home/aliasgar/masters/ACA/Lab_4/build/CMakeFiles/edit_cache.dir
+/home/aliasgar/masters/ACA/Lab_4/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/home/aliasgar/masters/ACA/Lab_4/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/lab4_aca.dir/cache.cpp.o -c /home/aliasgar/masters/ACA/Lab_4/src/cache.cpp",
+  "file": "/home/aliasgar/masters/ACA/Lab_4/src/cache.cpp"
+},
+{
+  "directory": "/home/aliasgar/masters/ACA/Lab_4/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/lab4_aca.dir/core.cpp.o -c /home/aliasgar/masters/ACA/Lab_4/src/core.cpp",
+  "file": "/home/aliasgar/masters/ACA/Lab_4/src/core.cpp"
+},
+{
+  "directory": "/home/aliasgar/masters/ACA/Lab_4/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/lab4_aca.dir/dram.cpp.o -c /home/aliasgar/masters/ACA/Lab_4/src/dram.cpp",
+  "file": "/home/aliasgar/masters/ACA/Lab_4/src/dram.cpp"
+},
+{
+  "directory": "/home/aliasgar/masters/ACA/Lab_4/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/lab4_aca.dir/memsys.cpp.o -c /home/aliasgar/masters/ACA/Lab_4/src/memsys.cpp",
+  "file": "/home/aliasgar/masters/ACA/Lab_4/src/memsys.cpp"
+},
+{
+  "directory": "/home/aliasgar/masters/ACA/Lab_4/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/lab4_aca.dir/sim.cpp.o -c /home/aliasgar/masters/ACA/Lab_4/src/sim.cpp",
+  "file": "/home/aliasgar/masters/ACA/Lab_4/src/sim.cpp"
+}
+]

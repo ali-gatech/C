@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/lab4_aca.dir/cache.cpp.o CMakeFiles/lab4_aca.dir/core.cpp.o CMakeFiles/lab4_aca.dir/dram.cpp.o CMakeFiles/lab4_aca.dir/memsys.cpp.o CMakeFiles/lab4_aca.dir/sim.cpp.o -o lab4_aca 
