@@ -33,6 +33,8 @@ void cache_print_stats(Cache* c, char* header){
 	printf("\n%s_READ_MISS_PERC  \t\t : %10.3f", header, 100*read_mr);
 	printf("\n%s_WRITE_MISS_PERC \t\t : %10.3f", header, 100*write_mr);
 	printf("\n%s_DIRTY_EVICTS   \t\t : %10llu", header, c->stat_dirty_evicts);
+	printf("\n%s_INVALID_EVICTS   \t\t : %10llu", header, c->stat_place_invalid);
+	printf("\n%s_SET_CONFLICTS   \t\t : %10llu", header, c->stat_set_conflicts);
 	printf("\n");
 }
 
@@ -144,7 +146,25 @@ void cache_install(Cache* c, Addr lineaddr, uint32_t is_write, uint32_t core_id)
 uint32_t cache_find_victim(Cache *c, uint32_t set_index, uint32_t core_id){
 
 	uint32_t min_index = 0;
-	if(c->replace_policy == 0)
+
+	if(c->replace_policy == 5)
+	{
+		for (int i = 0; i < c->cache_sets[0].ways; i++)
+		{
+			if(!c->cache_sets[set_index].cache_ways[i].valid)
+			{
+				c->stat_place_invalid++;
+				min_index = i;
+				return min_index;
+			}
+		}
+
+		min_index = rand() % c->cache_sets[0].ways;
+		c->stat_set_conflicts++;
+		return min_index;
+	}
+
+	else if(c->replace_policy == 0)
 	{
 		unsigned long long int min_access_time = c->cache_sets[set_index].cache_ways[0].LAT;
 

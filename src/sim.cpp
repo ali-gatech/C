@@ -23,10 +23,10 @@
 
 MODE        SIM_MODE        = SIM_MODE_A;
 uint64_t       CACHE_LINESIZE  = 64;
-uint64_t       REPL_POLICY     = 0; // 0:LRU 1:LFU+MRU 2:SWP (Part E)  
+uint64_t       REPL_POLICY     = 5; // 0:LRU 1:LFU+MRU 2:SWP (Part E)  
 
-uint64_t       DCACHE_SIZE     = 16*1024*1024;
-uint64_t       DCACHE_ASSOC    = 16;
+uint64_t       DCACHE_SIZE     = 16*1024;
+uint64_t       DCACHE_ASSOC    = 8;
 
 uint64_t       ICACHE_SIZE     = 32*1024;
 uint64_t       ICACHE_ASSOC    = 8;
@@ -93,13 +93,13 @@ int main(int argc, char** argv)
       	}
 
       	if (cycle - last_printdot_cycle >= DOT_INTERVAL) {
-			//print_dots();
+			print_dots();
       	}
 
       	cycle++;
     }
 
-    //print_stats();
+    print_stats();
     return 0;
 }
 
