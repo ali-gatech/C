@@ -8,6 +8,7 @@
 /// Define the necessary data structures here (Look at Appendix A for more details)
 ///////////////////////////////////////////////////////////////////////////////////
 
+
 struct Cache_Line
 {
     bool valid;
@@ -16,6 +17,9 @@ struct Cache_Line
     uint8_t coreID;
     uint32_t freq;
     unsigned long long int LAT;
+    #if CacheTiempo
+        uint32_t counter;
+    #endif
 };
 
 struct Cache_Set

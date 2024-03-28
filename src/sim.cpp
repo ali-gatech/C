@@ -17,6 +17,7 @@
 #define PRINT_DOTS   1
 #define DOT_INTERVAL 100000
 
+
 /***************************************************************************
  * Globals
  **************************************************************************/
@@ -25,7 +26,7 @@ MODE        SIM_MODE        = SIM_MODE_A;
 uint64_t       CACHE_LINESIZE  = 64;
 uint64_t       REPL_POLICY     = 5; // 0:LRU 1:LFU+MRU 2:SWP (Part E)  
 
-uint64_t       DCACHE_SIZE     = 16*1024;
+uint64_t       DCACHE_SIZE     = 32*1024;
 uint64_t       DCACHE_ASSOC    = 8;
 
 uint64_t       ICACHE_SIZE     = 32*1024;
@@ -93,13 +94,16 @@ int main(int argc, char** argv)
       	}
 
       	if (cycle - last_printdot_cycle >= DOT_INTERVAL) {
-			print_dots();
+			#if !histogram
+				print_dots();
+			#endif
       	}
 
       	cycle++;
     }
-
-    print_stats();
+		#if !histogram
+			print_stats();
+		#endif
     return 0;
 }
 

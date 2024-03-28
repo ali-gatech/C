@@ -10,6 +10,8 @@
 //////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 
+#define histogram 0
+
 typedef struct Memsys Memsys;
 
 struct Memsys {
@@ -43,6 +45,10 @@ uint64_t memsys_access(Memsys* sys, Addr addr, Access_Type type, uint32_t core_i
 uint64_t memsys_access_modeA(Memsys* sys, Addr lineaddr, Access_Type type, uint32_t core_id);
 uint64_t memsys_access_modeBC(Memsys* sys, Addr lineaddr, Access_Type type, uint32_t core_id);
 uint64_t memsys_access_modeDE(Memsys* sys, Addr lineaddr, Access_Type type, uint32_t core_id);
+
+#if CacheTiempo
+	void decr_ctr_inv (Memsys* sys);
+#endif
 
 // For parts B,C,D,E you must use this function to access L2 
 uint64_t memsys_L2_access(Memsys* sys, Addr lineaddr, bool is_writeback, uint32_t core_id);

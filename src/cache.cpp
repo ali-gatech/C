@@ -10,6 +10,9 @@
 
 unsigned long long int access_time = 1;
 
+uint16_t low_bound  =   8;
+uint16_t up_bound   =   16; 
+
 using namespace std;
 /////////////////////////////////////////////////////////////////////////////////////
 // ---------------------- DO NOT MODIFY THE PRINT STATS FUNCTION --------------------
@@ -88,6 +91,9 @@ bool cache_access(Cache* c, Addr lineaddr, uint32_t is_write, uint32_t core_id){
 		Cache_Line* line_access = &c->cache_sets[set_index].cache_ways[i];
 		if (line_access->tag == tag_index && line_access->valid)
 		{
+			#if CacheTiempo
+				line_access->counter = (rand() % (up_bound - low_bound)) + low_bound;
+			#endif
 			line_access->LAT = access_time++;
 			line_access->freq++;
 			if (is_write)
@@ -129,6 +135,11 @@ void cache_install(Cache* c, Addr lineaddr, uint32_t is_write, uint32_t core_id)
 	new_line->tag = tag_index;
 	new_line->valid = true;
 	new_line->freq = 1;
+
+	#if CacheTiempo
+		new_line->counter = (rand() % (up_bound - low_bound)) + low_bound;
+	#endif
+
 	if (is_write)
 	{
 		new_line->dirty = true;
@@ -159,7 +170,7 @@ uint32_t cache_find_victim(Cache *c, uint32_t set_index, uint32_t core_id){
 			}
 		}
 
-		min_index = rand() % c->cache_sets[0].ways;
+		min_index = rand() % c->cache_sets[set_index].ways;
 		c->stat_set_conflicts++;
 		return min_index;
 	}

@@ -11,6 +11,8 @@
 
 typedef uint64_t Addr;
 
+#define CacheTiempo 1 
+
 typedef enum Inst_Type_Enum {
     INST_TYPE_ALU=0,
     INST_TYPE_LOAD=1,

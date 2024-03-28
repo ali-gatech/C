@@ -48,6 +48,10 @@ void core_cycle(Core* c){
 		return;
 	}
 
+	#if CacheTiempo
+		decr_ctr_inv(c->memsys);
+	#endif
+
 	//if core is snoozing on DRAM hits, return ..
 	if (cycle <= c->snooze_end_cycle) {
 		return;

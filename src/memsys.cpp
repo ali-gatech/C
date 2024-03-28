@@ -62,6 +62,29 @@ Memsys* memsys_new(void){
 	return sys;
 }
 
+#if CacheTiempo
+void decr_ctr_inv(Memsys* sys)
+{
+	Cache* cache_check = sys->dcache;
+
+	for (int i = 0; i < cache_check->num_sets; i++)
+	{
+		for (int j = 0; j < cache_check->cache_sets[i].ways; j++)
+		{
+			Cache_Line* cache_line = &cache_check->cache_sets[i].cache_ways[j];
+			if(cache_line->valid)
+			{
+				cache_line->counter--;
+				if(!cache_line->counter)
+				{
+					cache_line->valid = false;
+				}
+			}
+		}
+	}
+}
+#endif
+
 
 ////////////////////////////////////////////////////////////////////
 // Return the latency of a memory operation
@@ -198,13 +221,17 @@ uint64_t memsys_access_modeA(Memsys* sys, Addr lineaddr, Access_Type type, uint3
 	bool ret_val = cache_access(sys->dcache,lineaddr,is_write,core_id);
 	if (!ret_val) {
 		// Install the new line in L1
-		// printf("0\n");
+		#if histogram
+			printf("0\n");
+		#endif
 		cache_install(sys->dcache,lineaddr,is_write,core_id);
-		delay = 100; //Memory Access Latency
+		delay = 10; //Memory Access Latency
 	}
 	else
 	{
-		// printf("1\n");
+		#if histogram
+			printf("1\n");
+		#endif
 		delay = 1; //DCACHE_HIT_LATENCY 
 	}
 	// Timing is not simulated in Part A
