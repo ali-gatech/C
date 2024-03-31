@@ -5,13 +5,14 @@
 #include <cstring>
 #include <cmath>
 #include <vector>
+#include <algorithm>
 
 #include "cache.h"
 
 unsigned long long int access_time = 1;
 
 uint16_t low_bound  =   8;
-uint16_t up_bound   =   16; 
+uint16_t up_bound   =   50; 
 
 using namespace std;
 /////////////////////////////////////////////////////////////////////////////////////
@@ -92,7 +93,7 @@ bool cache_access(Cache* c, Addr lineaddr, uint32_t is_write, uint32_t core_id){
 		if (line_access->tag == tag_index && line_access->valid)
 		{
 			#if CacheTiempo
-				line_access->counter = (rand() % (up_bound - low_bound)) + low_bound;
+				line_access->counter = max(line_access->counter, (uint32_t)(rand() % (up_bound - low_bound)) + low_bound);
 			#endif
 			line_access->LAT = access_time++;
 			line_access->freq++;
@@ -137,7 +138,7 @@ void cache_install(Cache* c, Addr lineaddr, uint32_t is_write, uint32_t core_id)
 	new_line->freq = 1;
 
 	#if CacheTiempo
-		new_line->counter = (rand() % (up_bound - low_bound)) + low_bound;
+		new_line->counter = max(new_line->counter, (uint32_t)(rand() % (up_bound - low_bound)) + low_bound);
 	#endif
 
 	if (is_write)

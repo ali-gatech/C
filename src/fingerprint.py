@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 input_len = 100000
 temp_list = []
 
-with open("bzip2_baseline.txt", "r") as f:
+with open("bzip2_CacheTiempo_stats.txt", "r") as f:
     for char in f:
         temp_list.append(int(char))
 
