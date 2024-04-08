@@ -6,15 +6,19 @@
 #include <cmath>
 #include <vector>
 #include <algorithm>
-
+#include <random>
 #include "cache.h"
 
 unsigned long long int access_time = 1;
 
-uint16_t low_bound  =   8;
+uint16_t low_bound  =   1;
 uint16_t up_bound   =   50; 
 
 using namespace std;
+
+random_device rd;
+uniform_int_distribution<uint32_t> dist(1, 50);
+uniform_int_distribution <int> bin(0,1);
 /////////////////////////////////////////////////////////////////////////////////////
 // ---------------------- DO NOT MODIFY THE PRINT STATS FUNCTION --------------------
 /////////////////////////////////////////////////////////////////////////////////////
@@ -39,6 +43,7 @@ void cache_print_stats(Cache* c, char* header){
 	printf("\n%s_DIRTY_EVICTS   \t\t : %10llu", header, c->stat_dirty_evicts);
 	printf("\n%s_INVALID_EVICTS   \t\t : %10llu", header, c->stat_place_invalid);
 	printf("\n%s_SET_CONFLICTS   \t\t : %10llu", header, c->stat_set_conflicts);
+	printf("\n%s_TIME_OUTS   \t\t : %10llu", header, c->stat_timeouts);
 	printf("\n");
 }
 
@@ -93,7 +98,9 @@ bool cache_access(Cache* c, Addr lineaddr, uint32_t is_write, uint32_t core_id){
 		if (line_access->tag == tag_index && line_access->valid)
 		{
 			#if CacheTiempo
-				line_access->counter = max(line_access->counter, (uint32_t)(rand() % (up_bound - low_bound)) + low_bound);
+				//line_access->counter = max(line_access->counter, (uint32_t)(rand() % (up_bound - low_bound)) + low_bound);
+				//line_access->counter = (uint32_t)(rand() % (up_bound - low_bound)) + low_bound;
+				//line_access->counter = 2;
 			#endif
 			line_access->LAT = access_time++;
 			line_access->freq++;
@@ -138,7 +145,9 @@ void cache_install(Cache* c, Addr lineaddr, uint32_t is_write, uint32_t core_id)
 	new_line->freq = 1;
 
 	#if CacheTiempo
-		new_line->counter = max(new_line->counter, (uint32_t)(rand() % (up_bound - low_bound)) + low_bound);
+		//new_line->counter = (uint32_t)(rand() % (up_bound - low_bound)) + low_bound;
+		new_line->counter = dist(rd);
+		//new_line->counter = (bin(rd)) ? low_bound : up_bound;
 	#endif
 
 	if (is_write)

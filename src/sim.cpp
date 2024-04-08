@@ -13,6 +13,7 @@
 #include "types.h"
 #include "memsys.h"
 #include "core.h"
+#include <time.h>
 
 #define PRINT_DOTS   1
 #define DOT_INTERVAL 100000
@@ -61,12 +62,14 @@ char trace_filename[MAX_CORES][1024];
 uint64_t last_printdot_cycle;
 unsigned long long cycle;
 
+
+
 /***************************************************************************************
  * Main
  ***************************************************************************************/
 int main(int argc, char** argv)
 {
-    srand(42);
+    srand(time(0));
 
     get_params(argc, argv);
 

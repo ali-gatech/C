@@ -42,6 +42,7 @@ struct Cache
     uint64_t stat_dirty_evicts;
     uint64_t stat_set_conflicts;
     uint64_t stat_place_invalid;
+    uint64_t stat_timeouts;
 };
 
 //////////////////////////////////////////////////////////////////////////////////////

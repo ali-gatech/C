@@ -18,30 +18,39 @@
   85 M	.................................................
   90 M	.................................................
   95 M	.................................................
- 100 M	.......................
+ 100 M	.................................................
+ 105 M	.................................................
+ 110 M	.................................................
+ 115 M	.................................................
+ 120 M	.................................................
+ 125 M	.................................................
+ 130 M	.................................................
+ 135 M	.................................................
+ 140 M	.................................................
+ 145 M	...........................................
 
-CYCLES      			 :  102397735
+CYCLES      			 :  149372225
 
 CORE_0_INST         		 :  100000000
-CORE_0_CYCLES       		 :  102397734
-CORE_0_IPC          		 :      0.977
+CORE_0_CYCLES       		 :  149372224
+CORE_0_IPC          		 :      0.669
 
 MEMSYS_IFETCH_ACCESS  		 :  100000000
 MEMSYS_LOAD_ACCESS    		 :   36353358
 MEMSYS_STORE_ACCESS   		 :    7500768
-MEMSYS_IFETCH_AVGDELAY		 :      1.000
-MEMSYS_LOAD_AVGDELAY  		 :      1.066
-MEMSYS_STORE_AVGDELAY 		 :      1.001
+MEMSYS_IFETCH_AVGDELAY		 :      1.216
+MEMSYS_LOAD_AVGDELAY  		 :      1.764
+MEMSYS_STORE_AVGDELAY 		 :      1.568
 
 DCACHE_READ_ACCESS    		 :  136353358
 DCACHE_WRITE_ACCESS   		 :    7500768
-DCACHE_READ_MISS      		 :    1198867
-DCACHE_WRITE_MISS     		 :       2482
-DCACHE_READ_MISS_PERC  		 :      0.879
-DCACHE_WRITE_MISS_PERC 		 :      0.033
-DCACHE_DIRTY_EVICTS   		 :     268789
-DCACHE_INVALID_EVICTS   		 :        512
-DCACHE_SET_CONFLICTS   		 :    1200837
-DCACHE_TIME_OUTS   		 :          0
+DCACHE_READ_MISS      		 :   24686112
+DCACHE_WRITE_MISS     		 :    2131560
+DCACHE_READ_MISS_PERC  		 :     18.105
+DCACHE_WRITE_MISS_PERC 		 :     28.418
+DCACHE_DIRTY_EVICTS   		 :    4988589
+DCACHE_INVALID_EVICTS   		 :   26817672
+DCACHE_SET_CONFLICTS   		 :          0
+DCACHE_TIME_OUTS   		 :   26817669
 
 

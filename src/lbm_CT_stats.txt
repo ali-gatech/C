@@ -18,30 +18,38 @@
   85 M	.................................................
   90 M	.................................................
   95 M	.................................................
- 100 M	.......................
+ 100 M	.................................................
+ 105 M	.................................................
+ 110 M	.................................................
+ 115 M	.................................................
+ 120 M	.................................................
+ 125 M	.................................................
+ 130 M	.................................................
+ 135 M	.................................................
+ 140 M	.............................
 
-CYCLES      			 :  102397735
+CYCLES      			 :  142925627
 
 CORE_0_INST         		 :  100000000
-CORE_0_CYCLES       		 :  102397734
-CORE_0_IPC          		 :      0.977
+CORE_0_CYCLES       		 :  142925626
+CORE_0_IPC          		 :      0.700
 
 MEMSYS_IFETCH_ACCESS  		 :  100000000
-MEMSYS_LOAD_ACCESS    		 :   36353358
-MEMSYS_STORE_ACCESS   		 :    7500768
-MEMSYS_IFETCH_AVGDELAY		 :      1.000
-MEMSYS_LOAD_AVGDELAY  		 :      1.066
-MEMSYS_STORE_AVGDELAY 		 :      1.001
+MEMSYS_LOAD_ACCESS    		 :   30188359
+MEMSYS_STORE_ACCESS   		 :    8926260
+MEMSYS_IFETCH_AVGDELAY		 :      1.176
+MEMSYS_LOAD_AVGDELAY  		 :      1.840
+MEMSYS_STORE_AVGDELAY 		 :      2.282
 
-DCACHE_READ_ACCESS    		 :  136353358
-DCACHE_WRITE_ACCESS   		 :    7500768
-DCACHE_READ_MISS      		 :    1198867
-DCACHE_WRITE_MISS     		 :       2482
-DCACHE_READ_MISS_PERC  		 :      0.879
-DCACHE_WRITE_MISS_PERC 		 :      0.033
-DCACHE_DIRTY_EVICTS   		 :     268789
-DCACHE_INVALID_EVICTS   		 :        512
-DCACHE_SET_CONFLICTS   		 :    1200837
-DCACHE_TIME_OUTS   		 :          0
+DCACHE_READ_ACCESS    		 :  130188359
+DCACHE_WRITE_ACCESS   		 :    8926260
+DCACHE_READ_MISS      		 :   21462813
+DCACHE_WRITE_MISS     		 :    5721828
+DCACHE_READ_MISS_PERC  		 :     16.486
+DCACHE_WRITE_MISS_PERC 		 :     64.101
+DCACHE_DIRTY_EVICTS   		 :    5991644
+DCACHE_INVALID_EVICTS   		 :   27184641
+DCACHE_SET_CONFLICTS   		 :          0
+DCACHE_TIME_OUTS   		 :   27184637
 
 

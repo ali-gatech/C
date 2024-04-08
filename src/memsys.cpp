@@ -77,6 +77,7 @@ void decr_ctr_inv(Memsys* sys)
 				cache_line->counter--;
 				if(!cache_line->counter)
 				{
+					sys->dcache->stat_timeouts++;
 					cache_line->valid = false;
 				}
 			}
@@ -225,7 +226,7 @@ uint64_t memsys_access_modeA(Memsys* sys, Addr lineaddr, Access_Type type, uint3
 			printf("0\n");
 		#endif
 		cache_install(sys->dcache,lineaddr,is_write,core_id);
-		delay = 10; //Memory Access Latency
+		delay = 3; //Memory Access Latency
 	}
 	else
 	{

@@ -1,16 +1,21 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import sys
 
 input_len = 100000
 temp_list = []
 
-with open("bzip2_CacheTiempo_stats.txt", "r") as f:
+filename = sys.argv[1]
+print(filename)
+
+with open(filename, "r") as f:
     for char in f:
         temp_list.append(int(char))
 
 
-# b = temp_list[0:30000000]
+#b = temp_list[0:30000000]
 b = temp_list[0:5000]
+#b = temp_list[10000000:10050000]
 # print(a)
 # print(b)
 
